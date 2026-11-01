@@ -1,0 +1,198 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px 15px;
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(91, 76, 255, 0.25),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 85% 80%,
+            rgba(0, 191, 255, 0.18),
+            transparent 35%
+        ),
+        linear-gradient(135deg, #080d1b, #111a32, #080d1b);
+
+    overflow-x: hidden;
+}
+
+.calculator-card {
+    width: min(100%, 390px);
+    margin: 0 auto !important;
+
+    background: rgba(255, 255, 255, 0.07);
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.4),
+        0 0 35px rgba(85, 105, 255, 0.08);
+
+    animation: appear 0.7s ease;
+}
+
+.calculator-grid {
+    display: grid;
+    gap: 10px;
+
+    grid-template-columns: repeat(8, 1fr);
+
+    grid-template-rows: repeat(8, clamp(38px, 5vw, 50px));
+
+    grid-template-areas:
+        "display display display display display display display display"
+        "display display display display display display display display"
+        "clear clear delete delete percent percent divide divide"
+        "seven seven eight eight nine nine multiply multiply"
+        "four four five five six six minus minus"
+        "one one two two three three plus plus"
+        "zero zero zero zero dot dot equal equal"
+        "zero zero zero zero dot dot equal equal";
+}
+.item-display {
+    grid-area: display;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    padding: 15px !important;
+
+    font-size: clamp(1.7rem, 6vw, 2.3rem);
+    font-weight: 600;
+
+    letter-spacing: 1px;
+
+    background: rgba(0, 0, 0, 0.45) !important;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    box-shadow: inset 0 3px 15px rgba(0, 0, 0, 0.3);
+
+    overflow: hidden;
+    overflow-wrap: anywhere;
+}
+
+.item-10 { grid-area: clear; }
+.item-11 { grid-area: delete; }
+.item-12 { grid-area: percent; }
+.item-13 { grid-area: divide; }
+
+.item-7 { grid-area: seven; }
+.item-8 { grid-area: eight; }
+.item-9 { grid-area: nine; }
+
+.item-4 { grid-area: four; }
+.item-5 { grid-area: five; }
+.item-6 { grid-area: six; }
+
+.item-1 { grid-area: one; }
+.item-2 { grid-area: two; }
+.item-3 { grid-area: three; }
+
+.item-0 { grid-area: zero; }
+.item-14 { grid-area: dot; }
+
+.item-16 { grid-area: multiply; }
+.item-17 { grid-area: minus; }
+.item-18 { grid-area: plus; }
+
+.item-15 { grid-area: equal; }
+
+.calculator-grid .btn {
+    width: 100%;
+    height: 100%;
+
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+
+    font-size: 1.15rem;
+    font-weight: 600;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: all 0.2s ease;
+}
+
+.calculator-grid .btn.bg-dark {
+    background: rgba(255, 255, 255, 0.09) !important;
+    color: #ffffff !important;
+}
+
+.calculator-grid .btn.bg-primary {
+    background: linear-gradient(135deg, #536dfe, #7555e8) !important;
+    color: white !important;
+}
+
+.calculator-grid .btn.bg-danger {
+    background: linear-gradient(135deg, #f04462, #c92d54) !important;
+    color: white !important;
+}
+
+.calculator-grid .btn.bg-success {
+    background: linear-gradient(135deg, #00c896, #009e83) !important;
+    color: white !important;
+}
+
+.calculator-grid .btn:hover {
+    filter: brightness(1.2);
+    transform: translateY(-3px);
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+}
+
+/* ========== Responsive Design ========== */
+
+@media (max-width: 480px) {
+
+    body {
+        padding: 15px;
+    }
+
+    .calculator-card {
+        width: 100%;
+        padding: 15px !important;
+        border-radius: 20px !important;
+    }
+
+    .calculator-grid {
+        gap: 8px;
+        grid-template-rows: repeat(8, 45px);
+    }
+
+    .calculator-grid .btn {
+        font-size: 1rem;
+        border-radius: 10px;
+    }
+
+    .item-display {
+        font-size: 1.7rem;
+    }
+}
+
+@media (max-width: 350px) {
+
+    .calculator-grid {
+        gap: 6px;
+        grid-template-rows: repeat(8, 40px);
+    }
+
+    .calculator-grid .btn {
+        font-size: 0.9rem;
+    }
+}
