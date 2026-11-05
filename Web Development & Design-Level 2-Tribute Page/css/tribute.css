@@ -1,0 +1,456 @@
+.redaction-regular {
+  font-family: "Redaction", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.redaction-bold {
+  font-family: "Redaction", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.redaction-regular-italic {
+  font-family: "Redaction", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.winky-rough{
+  font-family: "Winky Rough", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+html {
+    background-color: #061426;
+}
+
+body {
+   background:
+    linear-gradient(
+        135deg,
+        rgba(5, 15, 35, 0.562),
+        rgba(10, 45, 85, 0.90)
+    ),
+    url('../assets/Steve Jobs Apple Tribute Wallpaper.png');
+
+background-size: cover;
+background-position: center;
+background-attachment: fixed;
+background-repeat: no-repeat;
+}
+@media (max-width: 992px) {
+   body{
+    background-size: contain;
+   }
+}
+.body-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.55); 
+    pointer-events: none; 
+}
+
+
+section {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    will-change: opacity, transform;
+}
+
+#home {
+    min-height: 100vh;
+    opacity: 1;
+    transform: translateY(0);
+}
+.nav {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.352) !important; 
+    backdrop-filter: blur(10px); 
+}
+
+
+section.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+.back-to-top{
+    z-index: 1000;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+
+
+.nav ul li a{
+    transition: all 0.5s 0.1s  ;}
+ .nav ul li a:hover{
+   color:rgb(100, 162, 255) !important;
+    
+
+
+}
+.active{
+    color:rgb(60, 138, 255) !important;
+    box-shadow:0 0 40px rgb(100, 162, 255);
+    background-color:rgba(0, 0, 0, 0.089) ;
+}
+.portf{
+  transition: all 0.5s 0.1s  ;
+  cursor: pointer;
+      }
+.portf:hover{
+    color: rgb(100, 162, 255) !important;
+}
+.about .container,.about-items .about-item,.Projects .card,.Certificates .card,.Innovations .card{
+    background-color: rgba(255, 255, 255, 0.137);
+    opacity: 0.8;
+    transition: all 0.7s;
+    color: white !important;
+}
+.about .container:hover,.about-items .about-item:hover,.Projects .card:hover,.Innovations .card:hover{
+    opacity: 1;
+    transform: scale(1.07,1.07);
+    box-shadow: 0 0 40px rgb(100, 162, 255) !important;
+    background-color: rgba(240, 255, 255, 0.954);
+    color: black !important;
+        
+}
+
+.timeline {
+    max-width: 850px;
+    margin: auto;
+    position: relative;
+}
+
+.timeline-item {
+    position: relative;
+    transition: all 0.4s ease;
+}
+
+.timeline-content {
+    position: relative;
+    padding: 25px 30px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+
+    transition: all 0.4s ease;
+    overflow: hidden;
+}
+
+.timeline-content::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(100, 162, 255, 0.18),
+        transparent
+    );
+
+    transition: left 0.6s ease;
+}
+
+.timeline-content:hover {
+    transform: translateY(-10px) scale(1.02);
+
+    background: rgba(100, 162, 255, 0.13);
+    border-color: rgb(100, 162, 255);
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.35),
+        0 0 20px rgba(100, 162, 255, 0.25);
+}
+
+.timeline-content:hover::before {
+    left: 100%;
+}
+
+.timeline-content .year {
+    display: inline-block;
+    color: rgb(100, 162, 255);
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+}
+
+.timeline-content:hover .year {
+    color: white;
+    text-shadow: 0 0 12px rgb(100, 162, 255);
+    transform: scale(1.1);
+}
+
+.timeline-content h3 {
+    color: white;
+    font-size: 23px;
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+
+.timeline-content p {
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.8;
+    margin-bottom: 0;
+    transition: color 0.3s ease;
+}
+
+.timeline-content:hover p {
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .timeline-item {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .timeline-content {
+        padding: 20px;
+    }
+
+    .timeline-content h3 {
+        font-size: 20px;
+    }
+}
+.about-cont p{
+    font-size: large;
+
+}
+.about-cont p strong{
+    font-size: larger;
+
+}
+
+
+
+.Timeline .container .about-items .iconSkill{
+    transition: all 0.5s 0.1s  ;
+    border-color: rgb(100, 162, 255)!important ;
+}
+.Timeline .container .about-items .about-item:hover .iconSkill{
+    background-color: rgb(100, 162, 255)!important;
+        border-color:rgba(207, 207, 255, 0.9)!important ;
+}
+
+
+.header{
+    position: relative;
+}
+
+
+
+.container{
+    margin-inline:auto;
+    margin-block:45px ;
+}
+
+.card .image{
+    transition:all 1s;
+}
+.card:hover .image{
+    transform: scale(1.2,1.2);
+}
+
+.carousel-indicators {
+    position: relative;
+    top:350px;
+    
+}
+
+.text-body-secondary .w-10{
+    width: 10%;
+}
+.Projects-link{
+    transition: all 1s;
+}
+.Projects-link:hover{
+    color:#0078ff;
+}
+
+.black{
+    --bs-link-color-rgb:black;
+}
+a{
+    color: var(--bs-link-color-rgb);
+}
+.w-35{
+    width: 35%;
+}
+    .icon{
+        
+        border-color:rgb(100, 162, 255)!important ;
+        transition: all 0.5s 0.1s  !important;
+    }
+    .icon:hover{
+        background-color: rgb(100, 162, 255)!important;
+        border-color:rgba(207, 207, 255, 0.9)!important ;
+    }
+    .myphoto{
+        width: 80%;
+        
+        object-fit: cover;
+        
+    }
+    .cv{
+       transition: all 0.5s 0.1s !important;
+    }
+    .cover{
+        background-color: rgb(100, 162, 255) !important;
+    }
+    .cursor {
+  display: inline-block;
+  animation: blink 0.7s infinite;
+}
+
+.footer {
+    position: relative;
+    margin-top: 80px;
+    padding: 60px 0 30px;
+
+    background: linear-gradient(
+        135deg,
+        rgba(5, 15, 35, 0.95),
+        rgba(0, 0, 0, 0.88)
+    );
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border-top: 1px solid rgba(100, 162, 255, 0.3);
+
+    box-shadow:
+        0 -10px 40px rgba(0, 0, 0, 0.3),
+        0 -2px 20px rgba(100, 162, 255, 0.08);
+
+    overflow: hidden;
+}
+
+
+.footer::before {
+    content: "";
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 350px;
+    height: 150px;
+
+    background: rgba(100, 162, 255, 0.15);
+    filter: blur(80px);
+    border-radius: 50%;
+
+    pointer-events: none;
+}
+
+
+.footer-content {
+    position: relative;
+    z-index: 1;
+}
+
+
+.footer-title {
+    color: white;
+    font-size: 36px;
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+    transition: all 0.4s ease;
+    cursor: default;
+}
+
+.footer-title:hover {
+    color: rgb(100, 162, 255);
+
+    text-shadow:
+        0 0 10px rgba(100, 162, 255, 0.5),
+        0 0 30px rgba(100, 162, 255, 0.3);
+
+    transform: translateY(-3px);
+}
+
+
+.footer-description {
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 16px;
+    margin-top: 12px;
+
+    transition: color 0.4s ease;
+}
+
+.footer-description:hover {
+    color: rgba(255, 255, 255, 0.95);
+}
+
+
+.footer-credit {
+    color: rgba(255, 255, 255, 0.65);
+    margin-top: 30px;
+    font-size: 14px;
+}
+
+@media (max-width: 576px) {
+
+    .footer {
+        margin-top: 55px;
+        padding: 45px 0 25px;
+    }
+
+    .footer-title {
+        font-size: 28px;
+    }
+
+    .footer-description {
+        font-size: 14px;
+        padding: 0 15px;
+    }
+
+    .footer-credit {
+        font-size: 13px;
+    }
+}
+
+@keyframes blink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0; }
+}
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+    border-radius:5px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background:rgba(100, 162, 255, 0.5); 
+  }
